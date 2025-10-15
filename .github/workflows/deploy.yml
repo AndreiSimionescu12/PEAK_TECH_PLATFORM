@@ -1,0 +1,56 @@
+name: 🚀 Deploy to Production
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: # Permite rularea manuală
+
+jobs:
+  deploy:
+    name: 🏗️ Build and Deploy
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📂 Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: 🟢 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: 📦 Install dependencies
+      run: npm ci
+    
+    - name: 🔍 Run linting
+      run: npm run lint
+    
+    - name: 🏗️ Build project
+      run: npm run export
+    
+    - name: 📊 Build info
+      run: |
+        echo "Build completed at: $(date)"
+        echo "Files in out directory:"
+        ls -la out/
+    
+    - name: 🚀 Deploy to FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./out/
+        server-dir: /public_html/
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          **/.DS_Store
+          **/Thumbs.db
+    
+    - name: ✅ Deployment Success
+      run: |
+        echo "🎉 Deployment completed successfully!"
+        echo "Site URL: https://peaktech.ro"
