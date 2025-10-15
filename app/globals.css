@@ -5,11 +5,13 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden; /* Fix pentru scroll orizontal */
   }
   
   body {
     @apply bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white;
     background-attachment: fixed;
+    overflow-x: hidden; /* Fix pentru scroll orizontal */
   }
 }
 
