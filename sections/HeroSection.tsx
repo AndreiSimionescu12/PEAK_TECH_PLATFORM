@@ -92,6 +92,8 @@ export default function HeroSection() {
 
           {/* Browser Window - Center Top - STATIC sasadasd  sadasadasd*/}
            {/* Browser Window - Center Top - STATIC sasadasd  sadasaasddasd*/}
+            {/* Browser Window - Center Top - STATIC sasadasd  sadasaasddasd*/}
+            {/* Browser Window - Center Top - STATIC sasadasd  sadasaasddasd*/}
           <motion.div
             initial={{ opacity: 0, y: -50 }}
             animate={{ 
