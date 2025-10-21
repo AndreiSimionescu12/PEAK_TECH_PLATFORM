@@ -47,30 +47,69 @@ export const siteConfig = {
   testimonials: [
     {
       id: 1,
-      name: 'Maria Popescu',
-      company: 'TechStart SRL',
-      role: 'CEO',
-      content: 'Peak Tech SRL ne-a transformat complet prezența online. Site-ul nostru nu doar că arată profesional, dar și convertește mult mai bine.',
-      rating: 5,
-      avatar: '/testimonials/maria-popescu.jpg'
+      name: 'Andrei Constantinescu',
+      company: 'Boutique Fashion SRL',
+      role: 'Director General',
+      badge: 'Magazin online',
+      content: 'Am colaborat cu Peak Tech pentru dezvoltarea magazinului nostru online și rezultatul a depășit toate așteptările. Echipa lor a înțeles perfect viziunea brandului nostru și a livrat o platformă e-commerce modernă și intuitivă.',
+      rating: 4.5,
+      avatar: '/testimonials/andrei-constantinescu.jpg',
+      timestamp: '2 săpt. în urmă'
     },
     {
       id: 2,
-      name: 'Alexandru Ionescu',
-      company: 'Digital Solutions',
-      role: 'Founder',
-      content: 'Colaborarea cu echipa Peak Tech a fost excepțională. Au înțeles perfect nevoile noastre și au livrat o soluție care depășește așteptările.',
+      name: 'Raluca Mihăilescu',
+      company: 'Dental Care Clinic',
+      role: 'Manager Clinică',
+      badge: 'Site de prezentare',
+      content: 'Parteneriat excelent cu Peak Tech! Ne-au creat un site de prezentare elegant și profesional care reflectă perfect standardele clinicii noastre. Comunicarea a fost fluentă și au fost mereu disponibili pentru ajustări.',
       rating: 5,
-      avatar: '/testimonials/alexandru-ionescu.jpg'
+      avatar: '/testimonials/raluca-mihailescu.jpg',
+      timestamp: '3 săpt. în urmă'
     },
     {
       id: 3,
-      name: 'Elena Dumitrescu',
-      company: 'E-commerce Plus',
-      role: 'Marketing Director',
-      content: 'Magazinul online dezvoltat de Peak Tech ne-a permis să creștem vânzările cu 300%. Recomand cu încredere!',
+      name: 'Cristian Vasilescu',
+      company: 'Legal Partners',
+      role: 'Avocat Senior',
+      badge: 'Site de prezentare',
+      content: 'Recomand cu încredere colaborarea cu Peak Tech! Au dezvoltat website-ul cabinetului nostru de avocatură cu o atenție deosebită la detalii. Design-ul este sobru, elegant și inspiră încredere - exact ce aveam nevoie.',
+      rating: 4.5,
+      avatar: '/testimonials/cristian-vasilescu.jpg',
+      timestamp: '1 lună în urmă'
+    },
+    {
+      id: 4,
+      name: 'Diana Georgescu',
+      company: 'Beauty Studio Premium',
+      role: 'Fondator',
+      badge: 'Software custom',
+      content: 'Am lucrat cu Peak Tech pentru dezvoltarea unui sistem custom de programări și management clienți. Soluția lor a automatizat complet procesele noastre și ne-a economisit ore întregi de muncă manuală. Profesionalism maxim!',
       rating: 5,
-      avatar: '/testimonials/elena-dumitrescu.jpg'
+      avatar: '/testimonials/diana-georgescu.jpg',
+      timestamp: '2 săpt. în urmă'
+    },
+    {
+      id: 5,
+      name: 'Victor Stanciu',
+      company: 'FitLife Gym',
+      role: 'Director Sport',
+      badge: 'Software custom',
+      content: 'Peak Tech ne-a dezvoltat un sistem personalizat pentru gestionarea membrilor și a antrenamentelor. Soluția este rapidă, intuitivă și membrii noștri o adoră! Colaborarea a fost foarte plăcută și profesionistă din toate punctele de vedere.',
+      rating: 4.5,
+      avatar: '/testimonials/victor-stanciu.jpg',
+      timestamp: '3 săpt. în urmă'
+    },
+    {
+      id: 6,
+      name: 'Mihaela Popa',
+      company: 'Fresh Food Restaurant',
+      role: 'Manager Restaurant',
+      badge: 'Magazin online',
+      content: 'Am ales Peak Tech pentru platforma noastră de comenzi online și nu regret deloc! Site-ul este rapid, ușor de navigat și integrarea cu sistemul nostru a fost impecabilă. Comenzile online au crescut semnificativ de la lansare.',
+      rating: 5,
+      avatar: '/testimonials/mihaela-popa.jpg',
+      timestamp: '1 lună în urmă'
     }
   ],
   

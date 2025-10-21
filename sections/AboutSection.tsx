@@ -67,18 +67,18 @@ export default function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="space-y-6 text-gray-300 text-lg leading-relaxed"
+              className="space-y-6 text-white text-lg leading-relaxed"
             >
               <p>
                 La <span className="text-white font-semibold">Peak Tech SRL</span>, transformăm provocările în oportunități de succes și construim parteneriate durabile cu toți clienții noștri. Ne ocupăm de <span className="text-blue-400 font-semibold">realizarea de site-uri</span> profesionale și oferim <span className="text-blue-400 font-semibold">soluții digitale personalizate</span>, concepute să alinieze perfect viziunea și obiectivele afacerii tale.
               </p>
               
               <p>
-                Am sprijinit numeroase companii să își atingă obiectivele digitale și să crească în mediul online. Printr-o abordare personalizată și rezultate măsurabile, livrăm cele mai bune soluții pentru <span className="text-purple-400 font-semibold">prezență online eficientă</span>, de la realizare site până la strategie digitală completă.
+                Am sprijinit numeroase companii să își atingă obiectivele digitale și să crească în mediul online. Printr-o abordare personalizată și rezultate măsurabile, livrăm cele mai bune soluții pentru <span className="text-blue-400 font-semibold">prezență online eficientă</span>, de la realizare site până la strategie digitală completă.
               </p>
               
               <p>
-                Fie că ești startup sau companie matură, oferim <span className="text-cyan-400 font-semibold">servicii digitale</span> care dezvoltă branduri online și consolidează încrederea clienților tăi.
+                Fie că ești startup sau companie matură, oferim <span className="text-blue-400 font-semibold">servicii digitale</span> care dezvoltă branduri online și consolidează încrederea clienților tăi.
               </p>
             </motion.div>
 
@@ -132,7 +132,7 @@ export default function AboutSection() {
                     <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors duration-300">
                       {value.title}
                     </h3>
-                    <p className="text-gray-300 text-sm leading-relaxed">
+                    <p className="text-white text-sm leading-relaxed">
                       {value.description}
                     </p>
                   </div>
@@ -147,57 +147,6 @@ export default function AboutSection() {
             ))}
           </motion.div>
         </div>
-
-        {/* Bottom Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8"
-        >
-          <div className="text-center">
-            <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              viewport={{ once: true }}
-              className="text-5xl font-bold gradient-text mb-2"
-            >
-              3+
-            </motion.div>
-            <div className="text-xl font-semibold text-white mb-1">Ani experiență</div>
-            <div className="text-gray-400">În dezvoltarea soluțiilor digitale</div>
-          </div>
-
-          <div className="text-center">
-            <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-              viewport={{ once: true }}
-              className="text-5xl font-bold gradient-text mb-2"
-            >
-              50+
-            </motion.div>
-            <div className="text-xl font-semibold text-white mb-1">Proiecte realizate</div>
-            <div className="text-gray-400">Site-uri web și aplicații mobile</div>
-          </div>
-
-          <div className="text-center">
-            <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              viewport={{ once: true }}
-              className="text-5xl font-bold gradient-text mb-2"
-            >
-              100%
-            </motion.div>
-            <div className="text-xl font-semibold text-white mb-1">Clienți mulțumiți</div>
-            <div className="text-gray-400">Rate de satisfacție maximă</div>
-          </div>
-        </motion.div>
       </div>
     </section>
   )

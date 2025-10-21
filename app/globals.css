@@ -17,11 +17,11 @@
 
 @layer components {
   .gradient-text {
-    @apply bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-blue-400 via-cyan-500 to-blue-600 bg-clip-text text-transparent;
   }
   
   .gradient-border {
-    @apply bg-gradient-to-r from-blue-500 to-purple-600 p-[1px] rounded-lg;
+    @apply bg-gradient-to-r from-blue-500 to-cyan-600 p-[1px] rounded-lg;
   }
   
   .gradient-border-content {
@@ -37,7 +37,7 @@
   }
   
   .btn-primary {
-    @apply bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30;
+    @apply bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30;
   }
   
   .btn-secondary {

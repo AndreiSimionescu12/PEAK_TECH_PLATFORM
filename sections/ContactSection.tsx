@@ -94,7 +94,7 @@ export default function ContactSection() {
             <span className="gradient-text">discutăm!</span>
           </h2>
           
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-white max-w-3xl mx-auto leading-relaxed">
             Contactează-ne astăzi pentru o sesiune gratuită de consultanță și descoperă cum putem ajuta afacerea ta să exceleze online!
           </p>
         </motion.div>
@@ -285,7 +285,7 @@ export default function ContactSection() {
               <h3 className="text-2xl font-bold text-white mb-4">
                 Programează o consultanță gratuită
               </h3>
-              <p className="text-gray-300 mb-6">
+              <p className="text-white mb-6">
                 Discută cu experții noștri despre proiectul tău și primește o ofertă personalizată în 24 de ore.
               </p>
               <motion.button

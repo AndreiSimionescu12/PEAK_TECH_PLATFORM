@@ -69,7 +69,7 @@ export default function ValuesSection() {
                   </h3>
 
                   {/* Description */}
-                  <p className="text-gray-400 leading-relaxed text-base">
+                  <p className="text-white leading-relaxed text-base">
                     {value.description}
                   </p>
 

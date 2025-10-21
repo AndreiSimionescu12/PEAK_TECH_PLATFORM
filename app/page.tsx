@@ -2,7 +2,6 @@
 
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import StatsSection from '@/components/StatsSection'
 import HeroSection from '@/sections/HeroSection'
 import ValuesSection from '@/sections/ValuesSection'
 import AboutSection from '@/sections/AboutSection'
@@ -29,9 +28,6 @@ export default function HomePage() {
         
         {/* Services Section */}
         <ServicesSection />
-        
-        {/* Stats Section */}
-        <StatsSection />
         
         {/* Testimonials Section */}
         <TestimonialsSection />

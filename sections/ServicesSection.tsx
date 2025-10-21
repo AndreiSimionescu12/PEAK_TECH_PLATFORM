@@ -35,9 +35,9 @@ function ServiceCard({ service, index }: ServiceCardProps) {
 
   const gradients = [
     'from-blue-500 to-cyan-500',
-    'from-purple-500 to-pink-500',
-    'from-green-500 to-emerald-500',
-    'from-orange-500 to-red-500'
+    'from-blue-600 to-cyan-600',
+    'from-cyan-500 to-blue-600',
+    'from-blue-700 to-cyan-700'
   ]
 
   return (
@@ -71,7 +71,7 @@ function ServiceCard({ service, index }: ServiceCardProps) {
             {service.title}
           </h3>
           
-          <p className="text-gray-400 leading-relaxed">
+          <p className="text-gray-300 leading-relaxed">
             {service.description}
           </p>
 
@@ -86,10 +86,10 @@ function ServiceCard({ service, index }: ServiceCardProps) {
                 viewport={{ once: true }}
                 className="flex items-center space-x-3"
               >
-                <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
                   <CheckIcon className="w-3 h-3 text-white" />
                 </div>
-                <span className="text-sm text-gray-300">{feature}</span>
+                <span className="text-sm text-gray-200">{feature}</span>
               </motion.div>
             ))}
           </div>
@@ -137,7 +137,7 @@ export default function ServicesSection() {
             <span className="gradient-text">complete</span>
           </h2>
           
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-white max-w-3xl mx-auto leading-relaxed">
             Înțelegem că succesul tău este succesul nostru, de aceea ne angajăm să îți oferim servicii digitale complete — de la realizare site până la promovare online.
           </p>
         </motion.div>
@@ -161,7 +161,7 @@ export default function ServicesSection() {
             <h3 className="text-2xl font-bold text-white mb-4">
               Ești pregătit să faci pasul următor?
             </h3>
-            <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
+            <p className="text-white mb-6 max-w-2xl mx-auto">
               Hai să discutăm cum putem ajuta afacerea ta să exceleze. Devino următoarea poveste de succes în portofoliul nostru!
             </p>
             <motion.button
