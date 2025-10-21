@@ -1,167 +1,108 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRightIcon, CheckIcon } from '@heroicons/react/24/outline'
+import { ArrowRightIcon } from '@heroicons/react/24/outline'
 import { siteConfig } from '@/constants/siteConfig'
-
-interface ServiceCardProps {
-  service: typeof siteConfig.services[0]
-  index: number
-}
-
-function ServiceCard({ service, index }: ServiceCardProps) {
-  const iconMap = {
-    Globe: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9" />
-      </svg>
-    ),
-    ShoppingCart: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
-      </svg>
-    ),
-    Smartphone: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-      </svg>
-    ),
-    Code: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-      </svg>
-    )
-  }
-
-  const gradients = [
-    'from-blue-500 to-cyan-500',
-    'from-blue-600 to-cyan-600',
-    'from-cyan-500 to-blue-600',
-    'from-blue-700 to-cyan-700'
-  ]
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      viewport={{ once: true }}
-      whileHover={{ scale: 1.05, y: -10 }}
-      className="group relative"
-    >
-      {/* Background Glow */}
-      <motion.div
-        whileHover={{ opacity: 0.3 }}
-        className={`absolute inset-0 bg-gradient-to-br ${gradients[index]} opacity-0 rounded-2xl blur-xl transition-opacity duration-300`}
-      />
-      
-      {/* Main Card */}
-      <div className="relative bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300 h-full">
-        {/* Icon */}
-        <motion.div
-          whileHover={{ scale: 1.1, rotate: 5 }}
-          className={`w-16 h-16 bg-gradient-to-br ${gradients[index]} rounded-xl flex items-center justify-center text-white mb-6 group-hover:shadow-lg group-hover:shadow-blue-500/25 transition-all duration-300`}
-        >
-          {iconMap[service.icon as keyof typeof iconMap]}
-        </motion.div>
-
-        {/* Content */}
-        <div className="space-y-4">
-          <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
-            {service.title}
-          </h3>
-          
-          <p className="text-gray-300 leading-relaxed">
-            {service.description}
-          </p>
-
-          {/* Features List */}
-          <div className="space-y-2">
-            {service.features.map((feature, featureIndex) => (
-              <motion.div
-                key={featureIndex}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: (index * 0.1) + (featureIndex * 0.05) }}
-                viewport={{ once: true }}
-                className="flex items-center space-x-3"
-              >
-                <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
-                  <CheckIcon className="w-3 h-3 text-white" />
-                </div>
-                <span className="text-sm text-gray-200">{feature}</span>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* CTA */}
-          <motion.button
-            whileHover={{ x: 5 }}
-            whileTap={{ scale: 0.95 }}
-            className="mt-6 flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors duration-300 group-hover:text-white"
-          >
-            <span className="font-medium">Află mai multe</span>
-            <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-          </motion.button>
-        </div>
-      </div>
-    </motion.div>
-  )
-}
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="section-padding bg-gradient-to-b from-slate-900/50 to-slate-800/30">
-      <div className="container-custom">
+    <section id="services" className="relative py-12 md:py-20 lg:py-32 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container-custom relative z-10 px-6 md:px-8 lg:px-12">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          {/* Section Badge */}
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-6 md:gap-8 mb-8 md:mb-12 lg:mb-16">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="inline-flex items-center space-x-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-2 mb-6"
+            className="flex-1"
           >
-            <span className="text-blue-400 text-sm font-medium">SERVICII</span>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-3 md:mb-4">
+              Servicii
+            </h2>
+            <p className="text-sm md:text-base lg:text-xl text-white/90 max-w-2xl leading-relaxed">
+              Înțelegem că succesul tău este succesul nostru, de aceea ne angajăm să îți oferim servicii digitale complete, de la realizare site până la promovare online.
+            </p>
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Soluții digitale{' '}
-            <span className="gradient-text">complete</span>
-          </h2>
-          
-          <p className="text-xl text-white max-w-3xl mx-auto leading-relaxed">
-            Înțelegem că succesul tău este succesul nostru, de aceea ne angajăm să îți oferim servicii digitale complete — de la realizare site până la promovare online.
-          </p>
-        </motion.div>
+          {/* CTA Button - Responsive */}
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="flex items-center justify-center w-32 h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 flex-shrink-0 rounded-full border-2 border-white/30 hover:border-blue-400 text-white hover:text-blue-400 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
+          >
+            <div className="text-center">
+              <div className="text-xs md:text-sm font-semibold">Programează</div>
+              <div className="text-xs md:text-sm font-semibold">o întâlnire</div>
+              <ArrowRightIcon className="w-5 h-5 md:w-6 md:h-6 mx-auto mt-1 md:mt-2 rotate-[-45deg]" />
+            </div>
+          </motion.button>
+        </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        {/* Services List */}
+        <div className="space-y-0">
           {siteConfig.services.map((service, index) => (
-            <ServiceCard key={service.id} service={service} index={index} />
+            <motion.div
+              key={service.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="group"
+            >
+              {/* Service Item */}
+              <div className="flex flex-col lg:grid lg:grid-cols-12 gap-2 md:gap-4 lg:gap-12 py-5 md:py-6 lg:py-8 border-b border-slate-700/50 hover:border-blue-500/50 transition-all duration-500">
+                {/* Title - Left */}
+                <div className="lg:col-span-3 mb-2 lg:mb-0">
+                  <h3 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                </div>
+
+                {/* Description - Center */}
+                <div className="lg:col-span-8">
+                  <p className="text-sm md:text-base lg:text-lg text-white/80 md:text-white/90 leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
+
+                {/* Arrow - Right */}
+                <div className="flex lg:col-span-1 items-center justify-end mt-2 lg:mt-0">
+                  <motion.div
+                    whileHover={{ x: 5 }}
+                    className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-slate-700 group-hover:border-blue-400 flex items-center justify-center group-hover:bg-blue-500/10 transition-all duration-300"
+                  >
+                    <ArrowRightIcon className="w-5 h-5 md:w-6 md:h-6 text-slate-400 group-hover:text-blue-400 transition-colors duration-300" />
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
           ))}
         </div>
 
-        {/* Bottom CTA */}
+        {/* Bottom CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center"
+          className="mt-12 md:mt-16 lg:mt-20 text-center"
         >
-          <div className="bg-gradient-to-r from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50">
-            <h3 className="text-2xl font-bold text-white mb-4">
+          <div className="bg-gradient-to-r from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-slate-700/50">
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">
               Ești pregătit să faci pasul următor?
             </h3>
-            <p className="text-white mb-6 max-w-2xl mx-auto">
+            <p className="text-sm md:text-base text-white mb-4 md:mb-6 max-w-2xl mx-auto">
               Hai să discutăm cum putem ajuta afacerea ta să exceleze. Devino următoarea poveste de succes în portofoliul nostru!
             </p>
             <motion.button

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Poppins } from 'next/font/google'
 import './globals.css'
+import CustomCursor from '@/components/CustomCursor'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -74,6 +75,7 @@ export default function RootLayout({
   return (
     <html lang="ro" className={`${inter.variable} ${poppins.variable}`}>
       <body className="font-inter antialiased">
+        <CustomCursor />
         {children}
       </body>
     </html>
