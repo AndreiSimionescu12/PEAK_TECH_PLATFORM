@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { siteConfig } from '@/constants/siteConfig'
+import Link from 'next/link';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -132,12 +133,12 @@ export default function Footer() {
             <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
               Termeni și condiții
             </a>
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+            <Link href="/privacy-policy" className="text-gray-400 hover:text-white text-sm transition-colors">
               Politica de confidențialitate
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+            </Link>
+            <Link href="/cookies-policy" className="text-gray-400 hover:text-white text-sm transition-colors">
               Cookies
-            </a>
+            </Link>
           </div>
         </motion.div>
       </div>

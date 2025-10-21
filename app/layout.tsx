@@ -3,6 +3,7 @@ import { Inter, Poppins } from 'next/font/google'
 import './globals.css'
 import CustomCursor from '@/components/CustomCursor'
 import FloatingContact from '@/components/FloatingContact'
+import CookiesBanner from '@/components/CookiesBanner'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -78,6 +79,7 @@ export default function RootLayout({
       <body className="font-inter antialiased">
         <CustomCursor />
         <FloatingContact />
+        <CookiesBanner />
         {children}
       </body>
     </html>
