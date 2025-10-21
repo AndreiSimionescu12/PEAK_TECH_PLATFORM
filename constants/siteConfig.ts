@@ -51,8 +51,8 @@ export const siteConfig = {
       company: 'Boutique Fashion SRL',
       role: 'Director General',
       badge: 'Magazin online',
-      content: 'Am colaborat cu Peak Tech pentru dezvoltarea magazinului nostru online și rezultatul a depășit toate așteptările. Echipa lor a înțeles perfect viziunea brandului nostru și a livrat o platformă e-commerce modernă și intuitivă.',
-      rating: 4.5,
+      content: 'Cel mai bun partener pe care l-am avut vreodată! Au transformat complet viziunea noastră într-un magazin online care vinde de la sine. Vânzările au crescut cu 40% în primele 2 luni.',
+      rating: 5,
       avatar: '/testimonials/andrei-constantinescu.jpg',
       timestamp: '2 săpt. în urmă'
     },
@@ -62,7 +62,7 @@ export const siteConfig = {
       company: 'Dental Care Clinic',
       role: 'Manager Clinică',
       badge: 'Site de prezentare',
-      content: 'Parteneriat excelent cu Peak Tech! Ne-au creat un site de prezentare elegant și profesional care reflectă perfect standardele clinicii noastre. Comunicarea a fost fluentă și au fost mereu disponibili pentru ajustări.',
+      content: 'M-au impresionat prin profesionalismul lor. Site-ul arată superb și numărul de programări online s-a dublat față de formularul vechi. Merită fiecare ban investit!',
       rating: 5,
       avatar: '/testimonials/raluca-mihailescu.jpg',
       timestamp: '3 săpt. în urmă'
@@ -73,7 +73,7 @@ export const siteConfig = {
       company: 'Legal Partners',
       role: 'Avocat Senior',
       badge: 'Site de prezentare',
-      content: 'Recomand cu încredere colaborarea cu Peak Tech! Au dezvoltat website-ul cabinetului nostru de avocatură cu o atenție deosebită la detalii. Design-ul este sobru, elegant și inspiră încredere - exact ce aveam nevoie.',
+      content: 'În sfârșit cineva care înțelege ce înseamnă calitate! Website-ul nostru transmite exact imaginea pe care ne-o doream - elegantă, sobră și profesională. Clienții ne fac constant complimente.',
       rating: 4.5,
       avatar: '/testimonials/cristian-vasilescu.jpg',
       timestamp: '1 lună în urmă'
@@ -84,7 +84,7 @@ export const siteConfig = {
       company: 'Beauty Studio Premium',
       role: 'Fondator',
       badge: 'Software custom',
-      content: 'Am lucrat cu Peak Tech pentru dezvoltarea unui sistem custom de programări și management clienți. Soluția lor a automatizat complet procesele noastre și ne-a economisit ore întregi de muncă manuală. Profesionalism maxim!',
+      content: 'Nu credeam că e posibil așa ceva! Sistemul lor mi-a făcut viața mult mai ușoară - economisesc 3-4 ore pe zi doar la programări. Investiția s-a recuperat singură în 2 luni.',
       rating: 5,
       avatar: '/testimonials/diana-georgescu.jpg',
       timestamp: '2 săpt. în urmă'
@@ -95,8 +95,8 @@ export const siteConfig = {
       company: 'FitLife Gym',
       role: 'Director Sport',
       badge: 'Software custom',
-      content: 'Peak Tech ne-a dezvoltat un sistem personalizat pentru gestionarea membrilor și a antrenamentelor. Soluția este rapidă, intuitivă și membrii noștri o adoră! Colaborarea a fost foarte plăcută și profesionistă din toate punctele de vedere.',
-      rating: 4.5,
+      content: 'Wow! Pur și simplu wow! Membrii sălii noastre sunt încântați de noua aplicație. E rapidă, intuitivă și arată fantastic. Peak Tech a depășit toate așteptările noastre.',
+      rating: 5,
       avatar: '/testimonials/victor-stanciu.jpg',
       timestamp: '3 săpt. în urmă'
     },
@@ -106,7 +106,7 @@ export const siteConfig = {
       company: 'Fresh Food Restaurant',
       role: 'Manager Restaurant',
       badge: 'Magazin online',
-      content: 'Am ales Peak Tech pentru platforma noastră de comenzi online și nu regret deloc! Site-ul este rapid, ușor de navigat și integrarea cu sistemul nostru a fost impecabilă. Comenzile online au crescut semnificativ de la lansare.',
+      content: 'Comenzile online s-au triplat de când am lansat noua platformă! E atât de ușor de folosit încât chiar și bunicile comandă fără probleme. Mulțumesc Peak Tech pentru munca extraordinară!',
       rating: 5,
       avatar: '/testimonials/mihaela-popa.jpg',
       timestamp: '1 lună în urmă'

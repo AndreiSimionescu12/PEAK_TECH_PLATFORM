@@ -260,11 +260,6 @@ export default function TestimonialsSection() {
                       {renderStars(testimonial.rating)}
                     </div>
 
-                    {/* Title */}
-                    <h3 className="text-xl font-bold text-white mb-3">
-                      Recomand cu căldură!
-                    </h3>
-
                     {/* Content */}
                     <blockquote className="text-white leading-relaxed mb-4 flex-grow text-base">
                       {testimonial.content}
