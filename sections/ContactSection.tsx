@@ -6,8 +6,13 @@ import {
   EnvelopeIcon, 
   PhoneIcon, 
   MapPinIcon,
-  PaperAirplaneIcon,
-  CheckCircleIcon
+  ClockIcon,
+  SparklesIcon,
+  CodeBracketIcon,
+  GlobeAltIcon,
+  ShoppingCartIcon,
+  DevicePhoneMobileIcon,
+  CogIcon
 } from '@heroicons/react/24/outline'
 import { siteConfig } from '@/constants/siteConfig'
 
@@ -15,35 +20,35 @@ export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    company: '',
     phone: '',
-    service: '',
-    message: ''
+    company: '',
+    industry: '',
+    description: '',
+    services: [] as string[],
+    budget: 3000,
+    timeline: '1-2'
   })
-  const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
+  const services = [
+    { id: 'web-presentation', name: 'Site de prezentare', Icon: GlobeAltIcon },
+    { id: 'ecommerce', name: 'Magazin online', Icon: ShoppingCartIcon },
+    { id: 'mobile-app', name: 'Aplicație mobilă', Icon: DevicePhoneMobileIcon },
+    { id: 'custom-software', name: 'Software custom', Icon: CogIcon },
+  ]
+
+  const handleServiceToggle = (serviceId: string) => {
+    setFormData(prev => ({
+      ...prev,
+      services: prev.services.includes(serviceId)
+        ? prev.services.filter(s => s !== serviceId)
+        : [...prev.services, serviceId]
+    }))
   }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Simulate form submission
-    setIsSubmitted(true)
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        phone: '',
-        service: '',
-        message: ''
-      })
-    }, 3000)
+    console.log('Form submitted:', formData)
+    alert('Mulțumim! Te vom contacta în curând pentru discuția despre proiect.')
   }
 
   const contactInfo = [
@@ -90,163 +95,207 @@ export default function ContactSection() {
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Hai să{' '}
-            <span className="gradient-text">discutăm!</span>
+            <span className="text-blue-400">Estimează</span> proiectul tău
           </h2>
           
           <p className="text-xl text-white max-w-3xl mx-auto leading-relaxed">
-            Contactează-ne astăzi pentru o sesiune gratuită de consultanță și descoperă cum putem ajuta afacerea ta să exceleze online!
+            Completează formularul și primește o ofertă personalizată în 24 de ore. Totul transparent, detaliat și fără obligații!
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Contact Form */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Form - Left Side */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative"
           >
-            {/* Background Glow */}
-            <motion.div
-              whileHover={{ opacity: 0.1 }}
-              className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 opacity-0 rounded-2xl blur-xl transition-opacity duration-300"
-            />
-            
-            {/* Form Card */}
-            <div className="relative bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50">
-              <h3 className="text-2xl font-bold text-white mb-6">Trimite-ne un mesaj</h3>
-              
-              {isSubmitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-12"
-                >
-                  <CheckCircleIcon className="w-16 h-16 text-green-400 mx-auto mb-4" />
-                  <h4 className="text-xl font-semibold text-white mb-2">Mesaj trimis cu succes!</h4>
-                  <p className="text-gray-400">Îți vom răspunde în cel mai scurt timp posibil.</p>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
-                        Nume complet *
-                      </label>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                        placeholder="Introdu numele tău"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
-                        Email *
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                        placeholder="email@exemplu.ro"
-                      />
-                    </div>
-                  </div>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Name */}
+              <div>
+                <label className="block text-white text-sm font-medium mb-2">
+                  Numele și prenumele tău *
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full bg-slate-800 border-b-2 border-blue-500 text-white px-4 py-3 focus:outline-none focus:border-blue-400 transition-colors"
+                  placeholder="Introdu numele tău"
+                />
+              </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
-                        Companie
-                      </label>
-                      <input
-                        type="text"
-                        name="company"
-                        value={formData.company}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                        placeholder="Numele companiei"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
-                        Telefon
-                      </label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                        placeholder="+40 123 456 789"
-                      />
-                    </div>
-                  </div>
+              {/* Email */}
+              <div>
+                <label className="block text-white text-sm font-medium mb-2">
+                  Adresă de email *
+                </label>
+                <input
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full bg-slate-800 border-b-2 border-blue-500 text-white px-4 py-3 focus:outline-none focus:border-blue-400 transition-colors"
+                  placeholder="email@exemplu.ro"
+                />
+              </div>
 
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Serviciu de interes
-                    </label>
-                    <select
-                      name="service"
-                      value={formData.service}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+              {/* Phone */}
+              <div>
+                <label className="block text-white text-sm font-medium mb-2">
+                  Telefon mobil *
+                </label>
+                <input
+                  type="tel"
+                  required
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  className="w-full bg-slate-800 border-b-2 border-blue-500 text-white px-4 py-3 focus:outline-none focus:border-blue-400 transition-colors"
+                  placeholder="+40 123 456 789"
+                />
+              </div>
+
+              {/* Company */}
+              <div>
+                <label className="block text-white text-sm font-medium mb-2">
+                  Companie (opțional)
+                </label>
+                <input
+                  type="text"
+                  value={formData.company}
+                  onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                  className="w-full bg-slate-800 border-b-2 border-blue-500 text-white px-4 py-3 focus:outline-none focus:border-blue-400 transition-colors"
+                  placeholder="Numele companiei"
+                />
+              </div>
+
+              {/* Industry */}
+              <div>
+                <label className="block text-white text-sm font-medium mb-2">
+                  Industria ta *
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={formData.industry}
+                  onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
+                  className="w-full bg-slate-800 border-b-2 border-blue-500 text-white px-4 py-3 focus:outline-none focus:border-blue-400 transition-colors"
+                  placeholder="Ex: E-commerce, Sănătate, Educație..."
+                />
+              </div>
+
+              {/* Services Selection */}
+              <div>
+                <label className="block text-white text-sm font-medium mb-4">
+                  Selectează serviciile de care ai nevoie *
+                </label>
+                <div className="grid grid-cols-2 gap-4">
+                  {services.map((service) => (
+                    <motion.label
+                      key={service.id}
+                      whileHover={{ scale: 1.02 }}
+                      className={`flex items-center space-x-3 p-4 rounded-lg border-2 cursor-pointer transition-all ${
+                        formData.services.includes(service.id)
+                          ? 'border-blue-500 bg-blue-500/10'
+                          : 'border-slate-700 bg-slate-800 hover:border-blue-500/50'
+                      }`}
                     >
-                      <option value="">Selectează un serviciu</option>
-                      {siteConfig.services.map((service) => (
-                        <option key={service.id} value={service.id}>
-                          {service.title}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+                      <input
+                        type="checkbox"
+                        checked={formData.services.includes(service.id)}
+                        onChange={() => handleServiceToggle(service.id)}
+                        className="hidden"
+                      />
+                      <service.Icon className="w-6 h-6 text-blue-400 flex-shrink-0" />
+                      <span className="text-white text-sm font-medium">{service.name}</span>
+                    </motion.label>
+                  ))}
+                </div>
+              </div>
 
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Mesaj *
-                    </label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      rows={5}
-                      className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none"
-                      placeholder="Descrie-ne proiectul tău și cum te putem ajuta..."
-                    />
-                  </div>
+              {/* Budget Slider */}
+              <div>
+                <label className="block text-white text-sm font-medium mb-4">
+                  Buget: <span className="text-blue-400 font-bold">€{formData.budget.toLocaleString()}</span>
+                </label>
+                <input
+                  type="range"
+                  min="300"
+                  max="10000"
+                  step="100"
+                  value={formData.budget}
+                  onChange={(e) => setFormData({ ...formData, budget: parseInt(e.target.value) })}
+                  className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer slider-blue"
+                />
+                <div className="flex justify-between text-xs text-gray-400 mt-2">
+                  <span>€300</span>
+                  <span>€2,500</span>
+                  <span>€5,000</span>
+                  <span>€10,000+</span>
+                </div>
+              </div>
 
-                  <motion.button
-                    type="submit"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full btn-primary flex items-center justify-center space-x-2"
-                  >
-                    <PaperAirplaneIcon className="w-5 h-5" />
-                    <span>Trimite mesajul</span>
-                  </motion.button>
-                </form>
-              )}
-            </div>
+              {/* Timeline */}
+              <div>
+                <label className="block text-white text-sm font-medium mb-4">
+                  Termen limită
+                </label>
+                <div className="grid grid-cols-4 gap-3">
+                  {['1-2 săpt.', '1-2', '2-3', '3+'].map((option) => (
+                    <motion.button
+                      key={option}
+                      type="button"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => setFormData({ ...formData, timeline: option })}
+                      className={`py-3 px-2 rounded-lg font-medium transition-all text-sm ${
+                        formData.timeline === option
+                          ? 'bg-blue-600 text-white'
+                          : 'bg-slate-800 text-gray-300 hover:bg-slate-700'
+                      }`}
+                    >
+                      {option === '1-2 săpt.' ? option : `${option} luni`}
+                    </motion.button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Description */}
+              <div>
+                <label className="block text-white text-sm font-medium mb-2">
+                  Povestește-ne despre proiectul tău *
+                </label>
+                <textarea
+                  required
+                  value={formData.description}
+                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                  rows={5}
+                  className="w-full bg-slate-800 border-b-2 border-blue-500 text-white px-4 py-3 focus:outline-none focus:border-blue-400 transition-colors resize-none"
+                  placeholder="Descrie-ne proiectul tău și cum te putem ajuta..."
+                />
+              </div>
+
+              {/* Submit Button */}
+              <motion.button
+                type="submit"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold py-4 rounded-lg hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 shadow-lg"
+              >
+                Trimite cererea de estimare
+              </motion.button>
+            </form>
           </motion.div>
 
-          {/* Contact Information */}
+          {/* Info Cards - Right Side */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-6"
           >
             {/* Contact Cards */}
             <div className="space-y-6">
@@ -258,15 +307,20 @@ export default function ContactSection() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.02 }}
-                  className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300"
+                  className="bg-slate-800/50 border border-slate-700 rounded-xl p-6"
                 >
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <info.icon className="w-6 h-6 text-white" />
+                    <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                      <info.icon className="w-6 h-6 text-blue-500" />
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-white mb-1">{info.title}</h4>
-                      <p className="text-blue-400 font-medium mb-1">{info.value}</p>
+                      <a
+                        href={info.title === 'Email' ? `mailto:${info.value}` : info.title === 'Telefon' ? `tel:${info.value}` : '#'}
+                        className="text-blue-400 hover:text-blue-300 font-medium mb-1 block transition-colors"
+                      >
+                        {info.value}
+                      </a>
                       <p className="text-gray-400 text-sm">{info.description}</p>
                     </div>
                   </div>
@@ -274,55 +328,89 @@ export default function ContactSection() {
               ))}
             </div>
 
+            {/* Info Cards */}
+            <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-6">
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                  <ClockIcon className="w-6 h-6 text-blue-500" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">
+                    Dă-ne doar 24 ore
+                  </h3>
+                  <p className="text-gray-300">
+                    și vom avea răspunsul pregătit. Îți vom trimite o estimare detaliată pentru proiectul tău.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-6">
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                  <SparklesIcon className="w-6 h-6 text-blue-500" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">
+                    Vom crea o estimare
+                  </h3>
+                  <p className="text-gray-300">
+                    bazată pe ore de lucru, timeline și costuri. Totul transparent și detaliat.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-6">
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                  <CodeBracketIcon className="w-6 h-6 text-blue-500" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">
+                    Suport tehnic inclus
+                  </h3>
+                  <p className="text-gray-300">
+                    după lansare pentru a ne asigura că totul funcționează perfect și că ești mulțumit de rezultat.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             {/* CTA Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 backdrop-blur-sm rounded-xl p-8 border border-blue-500/20"
-            >
-              <h3 className="text-2xl font-bold text-white mb-4">
+            <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-xl p-6">
+              <h3 className="text-xl font-bold text-white mb-4">
                 Programează o consultanță gratuită
               </h3>
-              <p className="text-white mb-6">
+              <p className="text-gray-300 mb-4">
                 Discută cu experții noștri despre proiectul tău și primește o ofertă personalizată în 24 de ore.
               </p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-primary w-full"
-              >
-                Programează acum
-              </motion.button>
-            </motion.div>
-
-            {/* Social Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50"
-            >
-              <h4 className="text-lg font-semibold text-white mb-4">Urmărește-ne</h4>
-              <div className="flex space-x-4">
-                {Object.entries(siteConfig.social).map(([platform, url]) => (
-                  <motion.a
-                    key={platform}
-                    href={url}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center text-gray-400 hover:text-blue-400 transition-colors duration-300"
-                  >
-                    <span className="text-sm font-medium capitalize">{platform}</span>
-                  </motion.a>
-                ))}
-              </div>
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
+
+      {/* Custom Slider Styles */}
+      <style jsx>{`
+        .slider-blue::-webkit-slider-thumb {
+          appearance: none;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: #3b82f6;
+          cursor: pointer;
+          box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+        .slider-blue::-moz-range-thumb {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: #3b82f6;
+          cursor: pointer;
+          border: none;
+          box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+      `}</style>
     </section>
   )
 }

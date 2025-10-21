@@ -8,6 +8,7 @@ import AboutSection from '@/sections/AboutSection'
 import ServicesSection from '@/sections/ServicesSection'
 import TestimonialsSection from '@/sections/TestimonialsSection'
 import ContactSection from '@/sections/ContactSection'
+import EstimateSection from '@/sections/EstimateSection'
 
 export default function HomePage() {
   return (
@@ -38,6 +39,9 @@ export default function HomePage() {
       
       {/* Footer */}
       <Footer />
+      
+      {/* Estimate Section - Floating Button */}
+      <EstimateSection />
     </div>
   )
 }

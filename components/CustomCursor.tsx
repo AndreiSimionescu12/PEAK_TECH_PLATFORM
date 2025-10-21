@@ -50,10 +50,14 @@ export default function CustomCursor() {
     <>
       {/* Main cursor dot */}
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 bg-blue-400 rounded-full pointer-events-none z-40"
+        className="fixed top-0 left-0 w-3 h-3 rounded-full pointer-events-none z-40"
+        style={{
+          background: 'radial-gradient(circle, #3b82f6 0%, #60a5fa 100%)',
+          boxShadow: '0 0 15px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.4)'
+        }}
         animate={{
-          x: mousePosition.x - 4,
-          y: mousePosition.y - 4,
+          x: mousePosition.x - 6,
+          y: mousePosition.y - 6,
           scale: isPointer ? 1.5 : 1
         }}
         transition={{
@@ -66,10 +70,14 @@ export default function CustomCursor() {
       
       {/* Outer cursor ring */}
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 border-2 border-blue-400/50 rounded-full pointer-events-none z-40"
+        className="fixed top-0 left-0 w-10 h-10 rounded-full pointer-events-none z-40"
+        style={{
+          border: '2px solid rgba(96, 165, 250, 0.6)',
+          boxShadow: '0 0 20px rgba(59, 130, 246, 0.3), inset 0 0 20px rgba(59, 130, 246, 0.1)'
+        }}
         animate={{
-          x: mousePosition.x - 16,
-          y: mousePosition.y - 16,
+          x: mousePosition.x - 20,
+          y: mousePosition.y - 20,
           scale: isPointer ? 1.5 : 1
         }}
         transition={{
