@@ -7,8 +7,13 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-slate-900/50 backdrop-blur-sm border-t border-slate-800">
-      <div className="container-custom section-padding">
+    <footer className="relative bg-slate-950 border-t border-blue-500/20 overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+      </div>
+      <div className="container-custom section-padding relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <motion.div

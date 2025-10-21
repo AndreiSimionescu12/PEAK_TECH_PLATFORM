@@ -6,11 +6,12 @@ import { siteConfig } from '@/constants/siteConfig'
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="relative py-12 md:py-20 lg:py-32 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
+    <section id="services" className="relative py-12 md:py-20 lg:py-32 bg-slate-950 overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute inset-0 opacity-20">
+      <div className="absolute inset-0 opacity-30">
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container-custom relative z-10 px-6 md:px-8 lg:px-12">

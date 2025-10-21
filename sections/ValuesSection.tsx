@@ -29,11 +29,12 @@ export default function ValuesSection() {
   ]
 
   return (
-    <section className="relative py-20 md:py-32 bg-gradient-to-b from-slate-900 to-slate-800 overflow-hidden">
+    <section className="relative py-20 md:py-32 bg-slate-950 overflow-hidden">
       {/* Background Decorations */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"></div>
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-2/3 left-2/3 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-6 lg:px-12 xl:px-20 relative z-10">

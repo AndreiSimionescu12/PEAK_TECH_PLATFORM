@@ -73,8 +73,15 @@ export default function ContactSection() {
   ]
 
   return (
-    <section id="contact" className="section-padding bg-gradient-to-b from-slate-900/50 to-slate-800/30">
-      <div className="container-custom">
+    <section id="contact" className="relative py-20 md:py-32 bg-slate-950 overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-2/3 left-2/3 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="container-custom relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -361,21 +368,6 @@ export default function ContactSection() {
               </div>
             </div>
 
-            <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-6">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0">
-                  <CodeBracketIcon className="w-6 h-6 text-blue-500" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    Suport tehnic inclus
-                  </h3>
-                  <p className="text-gray-300">
-                    după lansare pentru a ne asigura că totul funcționează perfect și că ești mulțumit de rezultat.
-                  </p>
-                </div>
-              </div>
-            </div>
 
             {/* CTA Card */}
             <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-xl p-6">
