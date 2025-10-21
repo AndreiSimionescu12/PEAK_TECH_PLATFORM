@@ -38,17 +38,6 @@ export default function AboutSection() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            {/* Section Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center space-x-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-2 mb-6"
-            >
-              <span className="text-blue-400 text-sm font-medium">DESPRE NOI</span>
-            </motion.div>
-
             {/* Main Heading */}
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
