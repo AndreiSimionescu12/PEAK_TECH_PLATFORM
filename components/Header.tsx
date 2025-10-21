@@ -74,7 +74,7 @@ export default function Header() {
                 className="flex items-center space-x-2 text-white hover:text-blue-400 transition-colors duration-300"
               >
                 <span className="text-lg font-medium">Meniu</span>
-                <Bars3Icon className="w-6 h-6" />
+                <Bars3Icon className="w-6 h-6 text-blue-400" />
               </motion.button>
 
               {/* CTA Button - Desktop only */}

@@ -137,7 +137,7 @@ export const siteConfig = {
   ],
   
   cta: {
-    primary: 'Programează o discuție',
+    primary: 'Estimează proiectul',
     secondary: 'Programează o consultanță',
     contact: 'Contactează-ne acum'
   }
