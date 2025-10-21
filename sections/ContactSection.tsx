@@ -73,7 +73,7 @@ export default function ContactSection() {
   ]
 
   return (
-    <section id="contact" className="relative py-20 md:py-32 bg-slate-950 overflow-hidden">
+    <section id="contact" className="relative py-16 sm:py-20 md:py-32 bg-slate-950 overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
@@ -81,14 +81,14 @@ export default function ContactSection() {
         <div className="absolute top-2/3 left-2/3 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
       </div>
       
-      <div className="container-custom relative z-10">
+      <div className="container-custom relative z-10 px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
           {/* Section Badge */}
           <motion.div
@@ -101,16 +101,16 @@ export default function ContactSection() {
             <span className="text-blue-400 text-sm font-medium">CONTACT</span>
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
             <span className="text-blue-400">Estimează</span> proiectul tău
           </h2>
           
-          <p className="text-xl text-white max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-white max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
             Completează formularul și primește o ofertă personalizată în 24 de ore. Totul transparent, detaliat și fără obligații!
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Form - Left Side */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -118,7 +118,7 @@ export default function ContactSection() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               {/* Name */}
               <div>
                 <label className="block text-white text-sm font-medium mb-2">
