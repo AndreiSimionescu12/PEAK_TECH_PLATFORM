@@ -5,7 +5,7 @@ export const siteConfig = {
   url: 'https://peaktech.ro',
   email: 'contact@peaktech.ro',
   phone: '+40758989515',
-  address: 'București, România',
+  address: 'Str. Closca 6 Cod 727593, Sat Stramtura, Suceava, România',
   
   social: {
     linkedin: 'https://linkedin.com/company/peak-tech-srl',
