@@ -263,14 +263,15 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.7 }}
             className="flex justify-center md:justify-start"
           >
-            <motion.button
+            <motion.a
+              href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="btn-primary flex items-center justify-center space-x-2 text-sm sm:text-base"
             >
               <span>Hai să discutăm!</span>
               <ArrowRightIcon className="w-5 h-5" />
-            </motion.button>
+            </motion.a>
           </motion.div>
 
         </div>

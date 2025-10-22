@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { siteConfig } from '@/constants/siteConfig'
+import Link from 'next/link'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -30,11 +31,12 @@ export default function Header() {
   }, [isMenuOpen])
 
   const menuItems = [
-    { name: 'Acasă', href: '#home' },
-    { name: 'Despre Noi', href: '#about' },
-    { name: 'Servicii', href: '#services' },
-    { name: 'Testimoniale', href: '#testimonials' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Acasă', href: '/' },
+    { name: 'Despre Noi', href: '/#about' },
+    { name: 'Servicii', href: '/#services' },
+    { name: 'Testimoniale', href: '/#testimonials' },
+    { name: 'Contact', href: '/#contact' },
+    { name: 'Estimează proiectul', href: '/estimate' },
   ]
 
   return (
@@ -56,7 +58,7 @@ export default function Header() {
               whileHover={{ scale: 1.05 }}
               className="flex items-center space-x-3"
             >
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl">P</span>
               </div>
               <div>
@@ -78,13 +80,15 @@ export default function Header() {
               </motion.button>
 
               {/* CTA Button - Desktop only */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="hidden md:block btn-primary"
-              >
-                {siteConfig.cta.primary}
-              </motion.button>
+              <Link href="/estimate">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="hidden md:block btn-primary"
+                >
+                  {siteConfig.cta.primary}
+                </motion.button>
+              </Link>
             </div>
           </div>
         </div>
@@ -121,18 +125,18 @@ export default function Header() {
               onClick={(e) => e.stopPropagation()}
             >
               {menuItems.map((item, index) => (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.1 + index * 0.1 }}
-                  whileHover={{ scale: 1.05, x: 10 }}
-                  className="block text-4xl md:text-5xl font-bold text-white hover:text-blue-400 transition-all duration-300"
-                >
-                  {item.name}
-                </motion.a>
+                <Link key={item.name} href={item.href}>
+                  <motion.div
+                    onClick={() => setIsMenuOpen(false)}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.1 + index * 0.1 }}
+                    whileHover={{ scale: 1.05, x: 10 }}
+                    className="block text-4xl md:text-5xl font-bold text-white hover:text-blue-400 transition-all duration-300 cursor-pointer"
+                  >
+                    {item.name}
+                  </motion.div>
+                </Link>
               ))}
               
               <motion.div
@@ -141,13 +145,16 @@ export default function Header() {
                 transition={{ duration: 0.4, delay: 0.6 }}
                 className="pt-8"
               >
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="btn-primary text-lg px-12 py-4"
-                >
-                  {siteConfig.cta.primary}
-                </motion.button>
+                <Link href="/estimate">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="btn-primary text-lg px-12 py-4"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {siteConfig.cta.primary}
+                  </motion.button>
+                </Link>
               </motion.div>
             </motion.div>
           </motion.div>

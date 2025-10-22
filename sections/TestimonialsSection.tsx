@@ -6,6 +6,7 @@ import { StarIcon } from '@heroicons/react/24/solid'
 import { StarIcon as StarOutlineIcon } from '@heroicons/react/24/outline'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 import { siteConfig } from '@/constants/siteConfig'
+import Link from 'next/link'
 
 export default function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -300,40 +301,42 @@ export default function TestimonialsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true }}
-          className="text-center mt-20"
+          className="text-center mt-12 md:mt-20 px-4 sm:px-6 lg:px-8"
         >
-          <div className="bg-slate-900/60 backdrop-blur-sm rounded-2xl p-8 border border-slate-800">
-            <h3 className="text-2xl font-bold text-white mb-8">
+          <div className="bg-slate-900/60 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-8 border border-slate-800 max-w-4xl mx-auto">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-6 md:mb-8 px-2">
               Alătură-te comunității noastre de clienți mulțumiți
             </h3>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-              <div className="text-center">
-                <div className="text-4xl font-bold gradient-text mb-2">100%</div>
-                <div className="text-white font-semibold mb-1">Rate satisfacție</div>
-                <div className="text-gray-400 text-sm">Clienți mulțumiți</div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-6 md:mb-8">
+              <div className="text-center px-2">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold gradient-text mb-2">100%</div>
+                <div className="text-white font-semibold mb-1 text-sm sm:text-base">Rate satisfacție</div>
+                <div className="text-gray-400 text-xs sm:text-sm">Clienți mulțumiți</div>
               </div>
 
-              <div className="text-center">
-                <div className="text-4xl font-bold gradient-text mb-2">24/7</div>
-                <div className="text-white font-semibold mb-1">Suport tehnic</div>
-                <div className="text-gray-400 text-sm">Asistență continuă</div>
+              <div className="text-center px-2">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold gradient-text mb-2">24/7</div>
+                <div className="text-white font-semibold mb-1 text-sm sm:text-base">Suport tehnic</div>
+                <div className="text-gray-400 text-xs sm:text-sm">Asistență continuă</div>
               </div>
 
-              <div className="text-center">
-                <div className="text-4xl font-bold gradient-text mb-2">50+</div>
-                <div className="text-white font-semibold mb-1">Proiecte realizate</div>
-                <div className="text-gray-400 text-sm">Site-uri și aplicații</div>
+              <div className="text-center px-2">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold gradient-text mb-2">50+</div>
+                <div className="text-white font-semibold mb-1 text-sm sm:text-base">Proiecte realizate</div>
+                <div className="text-gray-400 text-xs sm:text-sm">Site-uri și aplicații</div>
               </div>
             </div>
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="btn-primary"
-            >
-              Devino următorul nostru client mulțumit
-            </motion.button>
+            <Link href="/estimate">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="btn-primary"
+              >
+                Devino următorul nostru client mulțumit
+              </motion.button>
+            </Link>
           </div>
         </motion.div>
       </div>

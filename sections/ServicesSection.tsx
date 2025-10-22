@@ -106,13 +106,14 @@ export default function ServicesSection() {
             <p className="text-sm md:text-base text-white mb-4 md:mb-6 max-w-2xl mx-auto">
               Hai să discutăm cum putem ajuta afacerea ta să exceleze. Devino următoarea poveste de succes în portofoliul nostru!
             </p>
-            <motion.button
+            <motion.a
+              href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="btn-primary"
+              className="btn-primary inline-block"
             >
               {siteConfig.cta.secondary}
-            </motion.button>
+            </motion.a>
           </div>
         </motion.div>
       </div>
