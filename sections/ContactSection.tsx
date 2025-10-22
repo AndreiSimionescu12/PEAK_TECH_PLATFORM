@@ -160,7 +160,7 @@ export default function ContactSection() {
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   className="w-full bg-slate-800 border-b-2 border-blue-500 text-white px-4 py-3 focus:outline-none focus:border-blue-400 transition-colors"
-                  placeholder="+40 123 456 789"
+                  placeholder="+40758989515"
                 />
               </div>
 

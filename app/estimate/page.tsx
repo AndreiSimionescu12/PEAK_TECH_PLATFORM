@@ -129,7 +129,7 @@ export default function EstimatePage() {
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
-                    placeholder="+40 123 456 789"
+                    placeholder="+40758989515"
                   />
                 </div>
 

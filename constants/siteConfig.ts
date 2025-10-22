@@ -4,7 +4,7 @@ export const siteConfig = {
   tagline: 'Soluții digitale complete pentru afaceri moderne',
   url: 'https://peaktech.ro',
   email: 'contact@peaktech.ro',
-  phone: '+40 123 456 789',
+  phone: '+40758989515',
   address: 'București, România',
   
   social: {
