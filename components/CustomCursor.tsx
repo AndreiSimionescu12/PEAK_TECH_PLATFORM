@@ -9,7 +9,7 @@ export default function CustomCursor() {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    // Check if device is mobile/tablet
+    // Check if device is mobile/tabletsa
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 1024)
     }
