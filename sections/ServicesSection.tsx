@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRightIcon } from '@heroicons/react/24/outline'
 import { siteConfig } from '@/constants/siteConfig'
+import Link from 'next/link'
 
 export default function ServicesSection() {
   return (
@@ -17,11 +18,11 @@ export default function ServicesSection() {
       <div className="container-custom relative z-10 px-6 md:px-8 lg:px-12">
         {/* Header */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-6 md:gap-8 mb-8 md:mb-12 lg:mb-16">
-          <motion.div
+              <motion.div
             initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+                whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+                viewport={{ once: true }}
             className="flex-1"
           >
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-3 md:mb-4">
@@ -30,7 +31,7 @@ export default function ServicesSection() {
             <p className="text-sm md:text-base lg:text-xl text-white/90 max-w-2xl leading-relaxed">
               Înțelegem că succesul tău este succesul nostru, de aceea ne angajăm să îți oferim servicii digitale complete, de la realizare site până la promovare online.
             </p>
-          </motion.div>
+              </motion.div>
 
           {/* CTA Button - Responsive */}
           <motion.button
@@ -62,31 +63,33 @@ export default function ServicesSection() {
               className="group"
             >
               {/* Service Item */}
-              <div className="flex flex-col lg:grid lg:grid-cols-12 gap-2 md:gap-4 lg:gap-12 py-5 md:py-6 lg:py-8 border-b border-slate-700/50 hover:border-blue-500/50 transition-all duration-500">
-                {/* Title - Left */}
-                <div className="lg:col-span-3 mb-2 lg:mb-0">
-                  <h3 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
-                    {service.title}
-                  </h3>
-                </div>
+              <Link href={`/servicii/${service.id}`} className="block">
+                <div className="flex flex-col lg:grid lg:grid-cols-12 gap-2 md:gap-4 lg:gap-12 py-5 md:py-6 lg:py-8 border-b border-slate-700/50 hover:border-blue-500/50 transition-all duration-500 cursor-pointer">
+                  {/* Title - Left */}
+                  <div className="lg:col-span-3 mb-2 lg:mb-0">
+                    <h3 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
+                      {service.title}
+                    </h3>
+                  </div>
 
-                {/* Description - Center */}
-                <div className="lg:col-span-8">
-                  <p className="text-sm md:text-base lg:text-lg text-white/80 md:text-white/90 leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
+                  {/* Description - Center */}
+                  <div className="lg:col-span-8">
+                    <p className="text-sm md:text-base lg:text-lg text-white/80 md:text-white/90 leading-relaxed">
+                      {service.description}
+                    </p>
+                  </div>
 
-                {/* Arrow - Right */}
-                <div className="flex lg:col-span-1 items-center justify-end mt-2 lg:mt-0">
-                  <motion.div
-                    whileHover={{ x: 5 }}
-                    className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-slate-700 group-hover:border-blue-400 flex items-center justify-center group-hover:bg-blue-500/10 transition-all duration-300"
-                  >
-                    <ArrowRightIcon className="w-5 h-5 md:w-6 md:h-6 text-slate-400 group-hover:text-blue-400 transition-colors duration-300" />
-                  </motion.div>
+                  {/* Arrow - Right */}
+                  <div className="flex lg:col-span-1 items-center justify-end mt-2 lg:mt-0">
+                    <motion.div
+                      whileHover={{ x: 5 }}
+                      className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-slate-700 group-hover:border-blue-400 flex items-center justify-center group-hover:bg-blue-500/10 transition-all duration-300"
+                    >
+                      <ArrowRightIcon className="w-5 h-5 md:w-6 md:h-6 text-slate-400 group-hover:text-blue-400 transition-colors duration-300" />
+                    </motion.div>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </div>
