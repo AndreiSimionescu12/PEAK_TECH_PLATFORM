@@ -29,6 +29,9 @@ export default function ContactSection() {
     timeline: '1-2'
   })
 
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+
   const services = [
     { id: 'web-presentation', name: 'Site de prezentare', Icon: GlobeAltIcon },
     { id: 'ecommerce', name: 'Magazin online', Icon: ShoppingCartIcon },
@@ -45,10 +48,72 @@ export default function ContactSection() {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    alert('Mulțumim! Te vom contacta în curând pentru discuția despre proiect.')
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+
+    try {
+      // Construiește mesajul cu toate detaliile
+      const serviceNames = formData.services.map(serviceId => {
+        const service = services.find(s => s.id === serviceId)
+        return service?.name || serviceId
+      }).join(', ')
+
+      const message = `
+Industrie: ${formData.industry}
+Servicii dorite: ${serviceNames || 'Nespecificat'}
+Buget: €${formData.budget.toLocaleString()}
+Termen limită: ${formData.timeline === '1-2 săpt.' ? formData.timeline : `${formData.timeline} luni`}
+
+Descriere proiect:
+${formData.description}
+      `.trim()
+
+      // Trimite datele către backend
+      const response = await fetch('http://localhost:3001/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company || undefined,
+          service: serviceNames || 'Nespecificat',
+          message: message,
+        }),
+      })
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        // Resetează formularul
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          industry: '',
+          description: '',
+          services: [],
+          budget: 3000,
+          timeline: '1-2'
+        })
+        
+        // Ascunde mesajul de succes după 5 secunde
+        setTimeout(() => {
+          setSubmitStatus('idle')
+        }, 5000)
+      } else {
+        setSubmitStatus('error')
+      }
+    } catch (error) {
+      console.error('Eroare la trimiterea formularului:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const contactInfo = [
@@ -119,6 +184,44 @@ export default function ContactSection() {
             viewport={{ once: true }}
           >
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+              {/* Success Message */}
+              {submitStatus === 'success' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="bg-green-500/10 border border-green-500/20 rounded-lg p-4 mb-6"
+                >
+                  <div className="flex items-center space-x-2">
+                    <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div>
+                      <p className="text-green-400 font-semibold">Cerere trimisă cu succes!</p>
+                      <p className="text-green-300 text-sm">Te vom contacta în maxim 24 de ore.</p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* Error Message */}
+              {submitStatus === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="bg-red-500/10 border border-red-500/20 rounded-lg p-4 mb-6"
+                >
+                  <div className="flex items-center space-x-2">
+                    <svg className="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div>
+                      <p className="text-red-400 font-semibold">Eroare la trimiterea cererii</p>
+                      <p className="text-red-300 text-sm">Te rugăm să încerci din nou sau contactează-ne direct.</p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
               {/* Name */}
               <div>
                 <label className="block text-white text-sm font-medium mb-2">
@@ -287,11 +390,26 @@ export default function ContactSection() {
               {/* Submit Button */}
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold py-4 rounded-lg hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 shadow-lg"
+                disabled={isSubmitting}
+                whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                className={`w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold py-4 rounded-lg transition-all duration-300 shadow-lg ${
+                  isSubmitting 
+                    ? 'opacity-70 cursor-not-allowed' 
+                    : 'hover:from-blue-700 hover:to-cyan-700'
+                }`}
               >
-                Trimite cererea de estimare
+                {isSubmitting ? (
+                  <span className="flex items-center justify-center">
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Se trimite...
+                  </span>
+                ) : (
+                  'Trimite cererea de estimare'
+                )}
               </motion.button>
             </form>
           </motion.div>
