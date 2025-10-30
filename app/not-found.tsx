@@ -56,9 +56,13 @@ export default function NotFound() {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg shadow-blue-500/30"
+          className="w-20 h-20 flex items-center justify-center mx-auto mb-8"
         >
-          <span className="text-white font-bold text-2xl">P</span>
+          <img 
+            src="/images/logo_peak_tech_transparent_background.png" 
+            alt="Peak Tech SRL Logo" 
+            className="w-full h-full object-contain"
+          />
         </motion.div>
         
         {/* Title */}
