@@ -78,8 +78,12 @@ export default function AdminLogin() {
       >
         {/* Logo */}
         <div className="flex justify-center mb-6">
-          <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
-            <span className="text-white font-bold text-2xl">P</span>
+          <div className="w-16 h-16 flex items-center justify-center">
+            <img 
+              src="/images/logo_peak_tech_transparent_background.png" 
+              alt="Peak Tech SRL Logo" 
+              className="w-full h-full object-contain"
+            />
           </div>
         </div>
 

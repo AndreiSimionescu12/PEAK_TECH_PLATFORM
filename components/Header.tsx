@@ -56,14 +56,14 @@ export default function Header() {
             {/* Logo */}
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="flex items-center space-x-3"
+              className="flex items-center"
             >
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">P</span>
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-white">{siteConfig.name}</h1>
-                <p className="text-xs text-blue-400 uppercase tracking-wider">DIGITAL AGENCY</p>
+              <div className="h-14 w-auto flex items-center justify-center">
+                <img 
+                  src="/images/logo_peak_tech_transparent_background.png" 
+                  alt="Peak Tech SRL Logo" 
+                  className="h-full w-auto object-contain"
+                />
               </div>
             </motion.div>
 

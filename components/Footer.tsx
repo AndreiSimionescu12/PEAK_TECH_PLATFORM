@@ -23,13 +23,13 @@ export default function Footer() {
             transition={{ duration: 0.6 }}
             className="md:col-span-2"
           >
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">P</span>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-white">{siteConfig.name}</h3>
-                <p className="text-sm text-blue-400 uppercase tracking-wider">DIGITAL AGENCY</p>
+            <div className="flex items-center justify-center mb-4">
+              <div className="w-32 h-32 flex items-center justify-center">
+                <img 
+                  src="/images/logo_peak_tech_transparent_background.png" 
+                  alt="Peak Tech SRL Logo" 
+                  className="w-full h-full object-contain"
+                />
               </div>
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
