@@ -19,8 +19,16 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'Peak Tech SRL - Construim experiențe digitale care inspiră',
+  title: 'Construim experiențe digitale care inspiră',
   description: 'Peak Tech SRL oferă soluții digitale complete: site-uri web de prezentare, magazine online, aplicații mobile și dezvoltare software custom. Experiență profesională în tehnologie.',
+  icons: {
+    icon: [
+      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/images/logo_peak_tech_transparent_background.png', sizes: '192x192', type: 'image/png' }
+    ],
+    shortcut: '/favicon.png',
+    apple: '/images/logo_peak_tech_transparent_background.png',
+  },
   keywords: 'site web, magazin online, aplicații mobile, software custom, dezvoltare web, Peak Tech SRL',
   authors: [{ name: 'Peak Tech SRL' }],
   creator: 'Peak Tech SRL',
@@ -35,7 +43,7 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Peak Tech SRL - Construim experiențe digitale care inspiră',
+    title: 'Construim experiențe digitale care inspiră',
     description: 'Soluții digitale complete: site-uri web, magazine online, aplicații mobile și software custom.',
     url: 'https://peaktech.ro',
     siteName: 'Peak Tech SRL',
@@ -52,7 +60,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Peak Tech SRL - Construim experiențe digitale care inspiră',
+    title: 'Construim experiențe digitale care inspiră',
     description: 'Soluții digitale complete: site-uri web, magazine online, aplicații mobile și software custom.',
     images: ['/og-image.jpg'],
   },
