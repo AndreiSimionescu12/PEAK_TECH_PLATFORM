@@ -34,21 +34,23 @@ export default function ServicesSection() {
               </motion.div>
 
           {/* CTA Button - Responsive */}
-          <motion.button
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center justify-center w-32 h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 flex-shrink-0 rounded-full border-2 border-white/30 hover:border-blue-400 text-white hover:text-blue-400 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
-          >
-            <div className="text-center">
-              <div className="text-xs md:text-sm font-semibold">Programează</div>
-              <div className="text-xs md:text-sm font-semibold">o întâlnire</div>
-              <ArrowRightIcon className="w-5 h-5 md:w-6 md:h-6 mx-auto mt-1 md:mt-2 rotate-[-45deg]" />
-            </div>
-          </motion.button>
+          <Link href="/estimate">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center justify-center w-32 h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 flex-shrink-0 rounded-full border-2 border-white/30 hover:border-blue-400 text-white hover:text-blue-400 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20 cursor-pointer"
+            >
+              <div className="text-center">
+                <div className="text-xs md:text-sm font-semibold">Estimează</div>
+                <div className="text-xs md:text-sm font-semibold">proiectul</div>
+                <ArrowRightIcon className="w-5 h-5 md:w-6 md:h-6 mx-auto mt-1 md:mt-2 rotate-[-45deg]" />
+              </div>
+            </motion.div>
+          </Link>
         </div>
 
         {/* Services List */}

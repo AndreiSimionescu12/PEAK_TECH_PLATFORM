@@ -8,9 +8,9 @@ export const siteConfig = {
   address: 'Str. Closca 6 Cod 727593, Sat Stramtura, Suceava, România',
   
   social: {
-    linkedin: 'https://linkedin.com/company/peak-tech-srl',
-    facebook: 'https://facebook.com/peaktechsrl',
-    instagram: 'https://instagram.com/peaktechsrl',
+    linkedin: 'https://www.linkedin.com/company/109768555/',
+    facebook: 'https://www.facebook.com/profile.php?id=61582783426198',
+    instagram: 'https://www.linkedin.com/company/109768555/',
   },
   
   services: [
