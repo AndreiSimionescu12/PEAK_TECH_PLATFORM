@@ -1,7 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import emailjs from '@emailjs/browser'
+import { EMAILJS_CONFIG } from '@/lib/emailjs-config'
 import { 
   GlobeAltIcon, 
   ShoppingCartIcon, 
@@ -17,6 +19,11 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export default function EstimatePage() {
+  // Inițializează EmailJS
+  useEffect(() => {
+    emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY)
+  }, [])
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -45,11 +52,72 @@ export default function EstimatePage() {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    // Here you would typically send the data to your backend
-    alert('Cererea ta a fost trimisă! Îți vom răspunde în 24 de ore.')
+    
+    try {
+      console.log('Încercare trimitere email cu EmailJS...')
+      
+      // Prepare email template parameters
+      const templateParams = {
+        to_email: 'contact@peaktech.ro',
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        company: formData.company || 'Nu a specificat',
+        industry: formData.industry,
+        services: formData.services.join(', '),
+        budget: `€${formData.budget.toLocaleString()}`,
+        timeline: formData.timeline === '1-2 săpt.' ? formData.timeline : `${formData.timeline} luni`,
+        description: formData.description || 'Nu a adăugat descriere',
+        message: `
+Cerere nouă de estimare proiect:
+
+Nume: ${formData.name}
+Email: ${formData.email}
+Telefon: ${formData.phone}
+Companie: ${formData.company || 'Nu a specificat'}
+Industria: ${formData.industry}
+Servicii: ${formData.services.join(', ')}
+Buget: €${formData.budget.toLocaleString()}
+Timeline: ${formData.timeline === '1-2 săpt.' ? formData.timeline : `${formData.timeline} luni`}
+
+Descrierea proiectului:
+${formData.description || 'Nu a adăugat descriere'}
+        `
+      }
+
+      console.log('Template params:', templateParams)
+      console.log('EmailJS Config:', EMAILJS_CONFIG)
+
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
+        templateParams,
+        EMAILJS_CONFIG.PUBLIC_KEY
+      )
+
+      console.log('EmailJS răspuns:', result)
+      alert('Cererea ta a fost trimisă cu succes! Îți vom răspunde în 24 de ore.')
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        industry: '',
+        services: [],
+        budget: 1500,
+        timeline: '1-2',
+        description: ''
+      })
+      
+    } catch (error) {
+      console.error('Eroare la trimiterea email-ului:', error)
+      alert('A apărut o eroare la trimiterea cererii. Te rugăm să încerci din nou sau să ne contactezi direct.')
+    }
   }
 
   return (
