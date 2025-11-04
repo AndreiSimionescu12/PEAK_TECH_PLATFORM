@@ -10,7 +10,7 @@ export const siteConfig = {
   social: {
     linkedin: 'https://www.linkedin.com/company/109768555/',
     facebook: 'https://www.facebook.com/profile.php?id=61582783426198',
-    instagram: 'https://www.linkedin.com/company/109768555/',
+    instagram: 'https://www.instagram.com/peaktech.ro/',
   },
   
   services: [
